@@ -71,7 +71,7 @@ def _cg_iters(grad, hess, max_iter, normp=1):
 @torch.no_grad()
 def _minimize_newton_cg(
         fun, x0, lr=1., max_iter=None, cg_max_iter=None,
-        twice_diffable=True, line_search='strong-wolfe', xtol=1e-5,
+        twice_diffable=True, line_search='strong-wolfe', xtol=1e-16,
         normp=1, callback=None, disp=0, return_all=False):
     """Minimize a scalar function of one or more variables using the
     Newton-Raphson method, with Conjugate Gradient for the linear inverse
@@ -220,7 +220,7 @@ def _minimize_newton_cg(
 
 @torch.no_grad()
 def _minimize_newton_exact(
-        fun, x0, lr=1., max_iter=None, line_search='strong-wolfe', xtol=1e-5,
+        fun, x0, lr=1., max_iter=None, line_search='strong-wolfe', xtol=1e-16,
         normp=1, tikhonov=0., handle_npd='grad', callback=None, disp=0,
         return_all=False):
     """Minimize a scalar function of one or more variables using the
