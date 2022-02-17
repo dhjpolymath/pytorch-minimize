@@ -10,7 +10,7 @@ dot = lambda u,v: torch.dot(u.view(-1), v.view(-1))
 
 
 @torch.no_grad()
-def _minimize_cg(fun, x0, max_iter=None, gtol=1e-5, normp=float('inf'),
+def _minimize_cg(fun, x0, max_iter=None, gtol=1e-16, normp=float('inf'),
                  callback=None, disp=0, return_all=False):
     """Minimize a scalar function of one or more variables using
     nonlinear conjugate gradient.
