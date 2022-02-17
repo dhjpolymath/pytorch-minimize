@@ -100,7 +100,7 @@ class BFGS(HessianUpdateStrategy):
 @torch.no_grad()
 def _minimize_bfgs_core(
         fun, x0, lr=1., low_mem=False, history_size=100, inv_hess=True,
-        max_iter=None, line_search='strong-wolfe', gtol=1e-5, xtol=1e-9,
+        max_iter=None, line_search='strong-wolfe', gtol=1e-16, xtol=1e-16,
         normp=float('inf'), callback=None, disp=0, return_all=False):
     """Minimize a multivariate function with BFGS or L-BFGS.
 
